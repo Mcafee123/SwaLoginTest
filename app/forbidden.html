@@ -12,10 +12,18 @@
   <main>
     <h1>403 - Forbidden</h1>
     <a href="/logout">Logout</a>
+    <p>Loading User... <b id="user">...</b></p>
     <br>
     <a href="/">Back to Index</a>
   </main>
-
+  <script>
+    (async function () {
+      const user = await (await fetch('/.auth/me')).json()
+      const cp = user.clientPrincipal
+      console.log(user)
+      document.querySelector('#user').textContent = `${cp.userDetails} [${cp.userRoles.join(', ')}]`
+    }());
+  </script>
 </body>
 
 </html>
