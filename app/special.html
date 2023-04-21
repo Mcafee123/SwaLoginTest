@@ -10,17 +10,17 @@
 
 <body>
   <main>
-    <h1>Vanilla JavaScript App</h1>
+    <h1>Special Page</h1>
     <p>Loading content from the API: <b id="name">...</b></p>
     <p>Loading User... <b id="user">...</b></p>
     <a href="/logout">Log out</a>
     <br>
-    <a href="/special.html">Page with special Rights</a>
+    <a href="/">Back to Index</a>
   </main>
 
   <script>
     (async function () {
-      const response = await fetch(`/api/info`)
+      const response = await fetch(`/api/special`)
       switch (response.status) {
         case 400:
           window.location.href = '/invalid-invitation-error.html'
